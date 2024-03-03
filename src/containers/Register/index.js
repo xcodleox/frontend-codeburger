@@ -1,6 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
+import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import * as Yup from 'yup'
 
@@ -54,7 +55,7 @@ function Register () {
       if (status === 201 || status === 200) {
         toast.success('Cadastro criado com sucesso!')
       } else if (status === 409) {
-        toast.error('E-mail já existe!')
+        toast.error('E-mail já existe!>')
       } else {
         throw new Error()
       }
@@ -86,7 +87,7 @@ function Register () {
 
           <Button type="submit" style={{ marginTop: 25, marginBottom: 25 }}>Sign Up</Button>
         </form>
-        <SignInLnk>Já possui conta ? <a>Sign In</a>
+        <SignInLnk>Já possui conta?  <Link style={{ color: 'white' }} to={'/login'}>Sign In</Link>
         </SignInLnk>
       </ContainerItens>
     </Container>
